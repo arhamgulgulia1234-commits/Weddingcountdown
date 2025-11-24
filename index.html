@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Shubham ❤️ Bhawna - Wedding Countdown</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-gradient: radial-gradient(circle at top, #ffe4ec, #f5d0fe, #fef3c7);
+            --primary: #ec4899;
+            --primary-soft: rgba(236, 72, 153, 0.1);
+            --accent: #f97316;
+            --gold: #fbbf24;
+            --deep-rose: #9f1239;
+            --card-bg: rgba(255, 255, 255, 0.96);
+            --rounded-xl: 28px;
+            --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.16);
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-gradient);
+            color: #3a2a2f;
+            padding: 20px;
+        }
+
+        .background-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.35) 0, transparent 50%),
+                radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.4) 0, transparent 55%),
+                radial-gradient(circle at 90% 90%, rgba(255, 255, 255, 0.4) 0, transparent 55%);
+            opacity: 0.8;
+            z-index: 0;
+        }
+
+        main.page {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            border-radius: var(--rounded-xl);
+            box-shadow:
+                var(--shadow-soft),
+                0 0 0 1px rgba(255, 255, 255, 0.7);
+            padding: 26px 18px 20px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            main.page {
+                padding: 30px 32px 26px;
+            }
+        }
+
+        main.page::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                    rgba(239, 68, 68, 0.18),
+                    rgba(251, 146, 60, 0.16),
+                    rgba(192, 132, 252, 0.18));
+            mix-blend-mode: soft-light;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .page-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: 999px;
+            background: rgba(254, 242, 242, 0.96);
+            border: 1px solid rgba(248, 113, 113, 0.5);
+            color: #b91c1c;
+            margin-bottom: 10px;
+            animation: shimmer 2.6s ease-out infinite;
+        }
+
+        .tag span.heart {
+            font-size: 13px;
+        }
+
+        .script-heading {
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(1.9rem, 3vw, 2.4rem);
+            color: var(--deep-rose);
+            margin-bottom: 3px;
+        }
+
+        .names {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.2rem, 4.2vw, 2.9rem);
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .names span.highlight {
+            background: linear-gradient(120deg, #ec4899, #f97316, #facc15);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 1px 1px rgba(249, 250, 251, 0.7);
+        }
+
+        .ampersand {
+            font-size: 1.1em;
+            color: #f97316;
+        }
+
+        .suhan-safar {
+            font-family: "Great Vibes", cursive;
+            font-size: 1.4rem;
+            background: linear-gradient(120deg, #ec4899, #f97316, #fbbf24);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 6px;
+            letter-spacing: 0.04em;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .date-pill {
+            margin-top: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(251, 113, 133, 0.08);
+            border: 1px solid rgba(244, 63, 94, 0.25);
+            font-size: 13px;
+            color: #9b1c3b;
+        }
+
+        .date-pill .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #fb7185;
+        }
+
+        .date-pill strong {
+            font-weight: 600;
+        }
+
+        /* Highlighted function names */
+        .fn-highlight {
+            font-weight: 700;
+            color: #9f1239;
+            text-shadow: 0 1px 1px rgba(248, 250, 252, 0.9);
+        }
+
+        /* LAYOUT */
+        .layout {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        @media (min-width: 900px) {
+            .layout {
+                flex-direction: row;
+                align-items: stretch;
+            }
+        }
+
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .column.left {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .column.right {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* COUNTDOWN CARD */
+        .countdown-card {
+            position: relative;
+            border-radius: 24px;
+            background: linear-gradient(135deg,
+                    rgba(248, 250, 252, 0.96),
+                    rgba(255, 247, 237, 0.98));
+            border: 1px solid rgba(251, 191, 36, 0.6);
+            padding: 18px 14px 16px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .countdown-card {
+                padding: 20px 20px 16px;
+            }
+        }
+
+        .countdown-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-weight: 600;
+            color: #92400e;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .timer {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .timer {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        .time-box {
+            position: relative;
+            padding: 14px 10px 10px;
+            border-radius: 20px;
+            background: white;
+            box-shadow:
+                0 14px 30px rgba(15, 23, 42, 0.08),
+                0 0 0 0.5px rgba(248, 250, 252, 0.9);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .time-box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(251, 191, 36, 0.3), transparent 60%);
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .time-value {
+            position: relative;
+            font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            font-family: "Playfair Display", serif;
+        }
+
+        .time-label {
+            position: relative;
+            margin-top: 6px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+            opacity: 0.7;
+        }
+
+        .status-message {
+            margin-top: 14px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: #9a3412;
+        }
+
+        /* ACTIONS */
+        .actions {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .btn {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            border-radius: 999px;
+            font-size: 12px;
+            padding: 7px 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .btn span.icon {
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, #ec4899, #f97316);
+            color: white;
+            box-shadow: 0 12px 22px rgba(236, 72, 153, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            color: #334155;
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px dashed rgba(251, 146, 60, 0.9);
+            color: #9a3412;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+        }
+
+        .btn:active {
+            transform: translateY(0px) scale(0.99);
+            box-shadow: none;
+        }
+
+        .btn-toggle.on {
+            background: rgba(22, 163, 74, 0.08);
+            border-color: rgba(22, 163, 74, 0.9);
+            color: #166534;
+        }
+
+        /* FUN STATS */
+        .card {
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(249, 115, 22, 0.25);
+            padding: 12px 12px 10px;
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #9a3412;
+        }
+
+        .card-pill {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(254, 243, 199, 0.9);
+            border: 1px solid rgba(251, 191, 36, 0.6);
+            color: #92400e;
+            white-space: nowrap;
+        }
+
+        .fun-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .stat-item {
+            background: rgba(255, 247, 237, 0.8);
+            border-radius: 14px;
+            padding: 7px 8px;
+        }
+
+        .stat-label {
+            opacity: 0.8;
+            font-size: 11px;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .fun-line {
+            margin-top: 8px;
+            font-size: 12px;
+            font-style: italic;
+            color: #7c2d12;
+        }
+
+        .progress-wrapper {
+            margin-top: 8px;
+            font-size: 11px;
+        }
+
+        .progress-bar {
+            position: relative;
+            width: 100%;
+            height: 8px;
+            border-radius: 999px;
+            background: rgba(248, 250, 252, 0.9);
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .progress-fill {
+            position: absolute;
+            inset: 0;
+            width: 0%;
+            background: linear-gradient(90deg, #f97316, #ec4899, #facc15);
+            transition: width 0.6s ease-out;
+        }
+
+        /* LOVE TAP */
+        .love-tap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(248, 113, 113, 0.4);
+            font-size: 12px;
+        }
+
+        .love-btn {
+            border-radius: 999px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 6px 10px 6px 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(248, 113, 113, 0.08);
+            border: 1px solid rgba(248, 113, 113, 0.8);
+            color: #b91c1c;
+            font-size: 12px;
+            font-weight: 500;
+            transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+        }
+
+        .love-btn .heart-icon {
+            font-size: 16px;
+        }
+
+        .love-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 10px 18px rgba(248, 113, 113, 0.4);
+            background: rgba(248, 113, 113, 0.16);
+        }
+
+        .love-count {
+            font-weight: 600;
+        }
+
+        /* BLESSINGS WALL */
+        .blessings-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 22px;
+            border: 1px solid rgba(244, 114, 182, 0.4);
+            padding: 12px 12px 10px;
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+            max-height: 270px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blessings-list {
+            margin-top: 6px;
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .blessing {
+            background: rgba(253, 242, 248, 0.96);
+            border-radius: 14px;
+            padding: 7px 8px;
+            font-size: 12px;
+            margin-bottom: 6px;
+            border-left: 3px solid rgba(236, 72, 153, 0.9);
+        }
+
+        .blessing small {
+            display: block;
+            margin-top: 3px;
+            font-size: 10px;
+            opacity: 0.7;
+        }
+
+        .empty-note {
+            font-size: 12px;
+            opacity: 0.75;
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        /* FAMILY FUN / POLL */
+        .prompt-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 20px;
+            border: 1px dashed rgba(148, 163, 184, 0.8);
+            padding: 10px 12px;
+            margin-top: 4px;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .prompt-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .prompt-text {
+            flex: 1;
+        }
+
+        .prompt-btn {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 11px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.9);
+            color: #1d4ed8;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .poll-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .poll-btn {
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.8);
+            padding: 6px 12px;
+            font-size: 11px;
+            cursor: pointer;
+            background: rgba(248, 250, 252, 0.95);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+        }
+
+        .poll-btn span.icon {
+            font-size: 13px;
+        }
+
+        .poll-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.16);
+            background: rgba(239, 246, 255, 0.95);
+        }
+
+        .poll-stats {
+            margin-top: 4px;
+            font-size: 11px;
+        }
+
+        .poll-bars {
+            margin-top: 4px;
+            display: grid;
+            gap: 4px;
+        }
+
+        .poll-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .poll-label {
+            width: 70px;
+            font-weight: 500;
+        }
+
+        .poll-bar-outer {
+            flex: 1;
+            height: 8px;
+            border-radius: 999px;
+            background: rgba(248, 250, 252, 0.96);
+            overflow: hidden;
+        }
+
+        .poll-bar-inner.bride {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ec4899, #fb7185);
+            transition: width 0.4s ease-out;
+        }
+
+        .poll-bar-inner.groom {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #38bdf8, #3b82f6);
+            transition: width 0.4s ease-out;
+        }
+
+        .poll-numbers {
+            font-size: 11px;
+        }
+
+        .poll-message {
+            margin-top: 4px;
+            font-size: 11px;
+            font-style: italic;
+            color: #7c2d12;
+        }
+
+        /* WEDDING FUNCTIONS SCHEDULE */
+        .schedule-card .schedule {
+            margin-top: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .schedule-day {
+            background: rgba(255, 247, 237, 0.9);
+            border-radius: 14px;
+            padding: 7px 8px;
+            border-left: 3px solid rgba(249, 115, 22, 0.85);
+        }
+
+        .schedule-date {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .schedule-date span.label {
+            font-size: 13px;
+        }
+
+        .schedule-date span.note {
+            font-size: 11px;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .schedule-items {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .schedule-items li {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .time-chip {
+            font-size: 10px;
+            padding: 2px 7px;
+            border-radius: 999px;
+            border: 1px solid rgba(248, 113, 113, 0.6);
+            background: rgba(254, 242, 242, 0.96);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 500;
+        }
+
+        .event-name {
+            font-size: 12px;
+        }
+
+        /* FLOATING HEARTS */
+        .floating-hearts {
+            pointer-events: none;
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .floating-hearts .heart {
+            position: absolute;
+            font-size: 16px;
+            opacity: 0.5;
+            animation: floatUp 12s linear infinite;
+        }
+
+        .floating-hearts .heart:nth-child(1) {
+            left: 8%;
+            animation-duration: 13s;
+            animation-delay: -3s;
+        }
+
+        .floating-hearts .heart:nth-child(2) {
+            left: 24%;
+            animation-duration: 10s;
+            animation-delay: -6s;
+        }
+
+        .floating-hearts .heart:nth-child(3) {
+            left: 40%;
+            animation-duration: 11s;
+            animation-delay: -4s;
+        }
+
+        .floating-hearts .heart:nth-child(4) {
+            left: 60%;
+            animation-duration: 9s;
+            animation-delay: -7s;
+        }
+
+        .floating-hearts .heart:nth-child(5) {
+            left: 76%;
+            animation-duration: 12s;
+            animation-delay: -2s;
+        }
+
+        .floating-hearts .heart:nth-child(6) {
+            left: 88%;
+            animation-duration: 10s;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(40px) scale(0.9);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            70% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-260px) scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.36);
+            }
+
+            70% {
+                box-shadow: 0 0 0 14px rgba(248, 113, 113, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(248, 113, 113, 0);
+            }
+        }
+
+        /* CONFETTI */
+        .confetti-piece {
+            position: fixed;
+            width: 8px;
+            height: 14px;
+            border-radius: 2px;
+            opacity: 0.8;
+            animation: fall 2.8s linear forwards;
+            z-index: 999;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotateZ(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotateZ(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* MODAL */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-backdrop.show {
+            display: flex;
+        }
+
+        .modal {
+            width: min(420px, 90vw);
+            background: #fdfdfd;
+            border-radius: 20px;
+            padding: 18px 16px 14px;
+            box-shadow: 0 22px 50px rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(251, 113, 133, 0.7);
+        }
+
+        .modal-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 600;
+            color: #9a3412;
+            margin-bottom: 6px;
+        }
+
+        .modal-subtitle {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-bottom: 6px;
+        }
+
+        .modal label {
+            display: block;
+            font-size: 12px;
+            margin-top: 4px;
+            margin-bottom: 2px;
+            font-weight: 500;
+        }
+
+        .modal input,
+        .modal textarea {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.9);
+            padding: 6px 8px;
+            font-size: 12px;
+            font-family: inherit;
+            outline: none;
+            resize: vertical;
+            min-height: 34px;
+        }
+
+        .modal textarea {
+            min-height: 70px;
+        }
+
+        .modal input:focus,
+        .modal textarea:focus {
+            border-color: rgba(236, 72, 153, 0.9);
+            box-shadow: 0 0 0 1px rgba(236, 72, 153, 0.7);
+        }
+
+        .modal-actions {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            font-size: 12px;
+            flex-wrap: wrap;
+        }
+
+        .modal-btn {
+            border-radius: 999px;
+            border: none;
+            padding: 6px 11px;
+            font-size: 12px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .modal-btn.cancel {
+            background: rgba(248, 250, 252, 0.95);
+            border: 1px solid rgba(148, 163, 184, 0.8);
+            color: #334155;
+        }
+
+        .modal-btn.submit {
+            background: linear-gradient(120deg, #ec4899, #f97316);
+            color: white;
+            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.4);
+        }
+
+        .footer-note {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 11px;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        /* SCROLLBAR (for blessings) */
+        .blessings-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .blessings-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .blessings-list::-webkit-scrollbar-thumb {
+            background: rgba(248, 113, 113, 0.7);
+            border-radius: 999px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-overlay"></div>
+
+    <!-- Optional audio: place "wedding-song.mp3" in same folder -->
+    <audio id="weddingSong" loop>
+        <source src="wedding-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <main class="page">
+        <div class="floating-hearts" aria-hidden="true">
+            <div class="heart">💗</div>
+            <div class="heart">💞</div>
+            <div class="heart">💕</div>
+            <div class="heart">💓</div>
+            <div class="heart">💖</div>
+            <div class="heart">💘</div>
+        </div>
+
+        <div class="page-inner">
+            <header class="header">
+                <div class="tag">
+                    <span class="heart">💍</span>
+                    Wedding Countdown
+                </div>
+                <div class="script-heading">The journey to happily ever after</div>
+                <h1 class="names">
+                    <span class="highlight">Shubham</span>
+                    <span class="ampersand">❤️</span>
+                    <span class="highlight">Bhawna</span>
+                </h1>
+                <p class="suhan-safar">#SuhanaSafar</p>
+                <p class="subtitle">
+                    For the whole family to watch, celebrate and send love.
+                </p>
+                <div class="date-pill">
+                    <span class="dot"></span>
+                    <span>Wedding Day: <strong>11 March 2026</strong></span>
+                </div>
+            </header>
+
+            <section class="layout">
+                <!-- LEFT COLUMN: countdown & fun stats -->
+                <div class="column left">
+                    <article class="countdown-card">
+                        <h2 class="countdown-title">Time Left Until The Wedding</h2>
+                        <div class="timer" id="countdown">
+                            <div class="time-box">
+                                <div class="time-value" id="days">0</div>
+                                <div class="time-label">Days</div>
+                            </div>
+                            <div class="time-box">
+                                <div class="time-value" id="hours">00</div>
+                                <div class="time-label">Hours</div>
+                            </div>
+                            <div class="time-box">
+                                <div class="time-value" id="minutes">00</div>
+                                <div class="time-label">Minutes</div>
+                            </div>
+                            <div class="time-box">
+                                <div class="time-value" id="seconds">00</div>
+                                <div class="time-label">Seconds</div>
+                            </div>
+                        </div>
+
+                        <p class="status-message" id="statusMessage">
+                            Every second brings Shubham &amp; Bhawna closer to their big day. ✨
+                        </p>
+
+                        <div class="actions">
+                            <button class="btn btn-primary" id="blessingBtn">
+                                <span class="icon">📝</span> Send a Blessing
+                            </button>
+                            <button class="btn btn-secondary" id="confettiBtn">
+                                <span class="icon">🎉</span> Confetti Time
+                            </button>
+                            <button class="btn btn-outline btn-toggle" id="musicToggle">
+                                <span class="icon">🎶</span> Wedding Song
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-header">
+                            <div class="card-title">Fun Stats For The Family</div>
+                            <div class="card-pill" id="daysLabel">Loading…</div>
+                        </div>
+                        <div class="fun-stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-label">Weeks to go</div>
+                                <div class="stat-value" id="weeksLeft">-</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Total hours left</div>
+                                <div class="stat-value" id="hoursLeft">-</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Total minutes left</div>
+                                <div class="stat-value" id="minutesLeft">-</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Total seconds left</div>
+                                <div class="stat-value" id="secondsLeftTotal">-</div>
+                            </div>
+                        </div>
+                        <div class="progress-wrapper">
+                            <div>Family excitement meter</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                        </div>
+                        <div class="fun-line" id="funLine">
+                            Getting everything ready for the big day… sarees, suits, and smiles!
+                        </div>
+
+                        <div class="love-tap">
+                            <div>
+                                Tap the heart every time you think of Shubham &amp; Bhawna. 💕<br />
+                                <span class="love-count" id="loveCount">0</span> love taps from this device so far.
+                            </div>
+                            <button class="love-btn" id="loveBtn">
+                                <span class="heart-icon">💖</span>
+                                Tap to send love
+                            </button>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- RIGHT COLUMN: blessings, functions & fun corner -->
+                <div class="column right">
+                    <article class="blessings-card">
+                        <div class="card-header">
+                            <div class="card-title">Blessings Wall</div>
+                            <div class="card-pill">From the family 💌</div>
+                        </div>
+
+                        <div class="blessings-list" id="blessingsList">
+                            <div class="blessing">
+                                Wishing you both a lifetime of laughter, chai together, and endless inside jokes. 💞
+                                <small>– With love from the family</small>
+                            </div>
+                            <div class="blessing">
+                                May your home always be filled with warmth, respect, and happy noise from everyone who loves you.
+                                <small>– Blessings &amp; best wishes</small>
+                            </div>
+                        </div>
+
+                        <p class="empty-note" id="emptyNote" style="display:none;">
+                            Be the first one to leave a message for Shubham &amp; Bhawna!
+                        </p>
+                    </article>
+
+                    <!-- Wedding Functions Schedule -->
+                    <article class="card schedule-card">
+                        <div class="card-header">
+                            <div class="card-title">Wedding Functions</div>
+                            <div class="card-pill">9–11 March</div>
+                        </div>
+                        <div class="schedule">
+                            <!-- 09 March -->
+                            <div class="schedule-day">
+                                <div class="schedule-date">
+                                    <span class="label">09 March</span>
+                                    <span class="note">Ghee, Haldi &amp; more rituals</span>
+                                </div>
+                                <ul class="schedule-items">
+                                    <li>
+                                        <span class="event-name">
+                                            <span class="fn-highlight">Haldi &amp; Ghee</span> – with lots of masti &amp; mehendi vibes ✨
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- 10 March -->
+                            <div class="schedule-day">
+                                <div class="schedule-date">
+                                    <span class="label">10 March</span>
+                                    <span class="note">Fun, colours &amp; dancing</span>
+                                </div>
+                                <ul class="schedule-items">
+                                    <li>
+                                        <span class="time-chip">Noon</span>
+                                        <span class="event-name">
+                                            <span class="fn-highlight">Carnival</span> – Fun, masti &amp; dhamaal 🎪
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="time-chip">Evening</span>
+                                        <span class="event-name">
+                                            <span class="fn-highlight">Sangeet </span> – Glam &amp; Glaze 💃
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- 11 March -->
+                            <div class="schedule-day">
+                                <div class="schedule-date">
+                                    <span class="label">11 March</span>
+                                    <span class="note">The grand wedding day</span>
+                                </div>
+                                <ul class="schedule-items">
+                                    <li>
+                                        <span class="time-chip">Noon</span>
+                                        <span class="event-name">
+                                            <span class="fn-highlight">Mayra &amp; Batisi</span> – badhega function ka rang jab honge bhai behen sang 🤍
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="time-chip">Evening</span>
+                                        <span class="event-name">
+                                            <span class="fn-highlight">Reception &amp; Baarat</span> – Dilwale Dulhania Le Jayenge 💖
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-header">
+                            <div class="card-title">Family Fun Corner</div>
+                            <div class="card-pill">Bride vs Groom 😄</div>
+                        </div>
+
+                        <div class="prompt-card">
+                            <div class="prompt-row">
+                                <div class="prompt-text" id="promptText">
+                                    Who do you think will cry first at the wedding — the bride, the groom, or the parents?
+                                </div>
+                                <button class="prompt-btn" id="nextPromptBtn">
+                                    Next Question
+                                </button>
+                            </div>
+
+                            <div class="poll-options">
+                                <button class="poll-btn" id="pollBrideBtn">
+                                    <span class="icon">👰</span> Bride’s side
+                                </button>
+                                <button class="poll-btn" id="pollGroomBtn">
+                                    <span class="icon">🤵</span> Groom’s side
+                                </button>
+                            </div>
+
+                            <div class="poll-stats">
+                                <div class="poll-bars">
+                                    <div class="poll-bar-row">
+                                        <div class="poll-label">Bride side</div>
+                                        <div class="poll-bar-outer">
+                                            <div class="poll-bar-inner bride" id="brideBar"></div>
+                                        </div>
+                                        <div class="poll-numbers" id="brideCountText">0 votes</div>
+                                    </div>
+                                    <div class="poll-bar-row">
+                                        <div class="poll-label">Groom side</div>
+                                        <div class="poll-bar-outer">
+                                            <div class="poll-bar-inner groom" id="groomBar"></div>
+                                        </div>
+                                        <div class="poll-numbers" id="groomCountText">0 votes</div>
+                                    </div>
+                                </div>
+                                <div class="poll-message" id="pollMessage">
+                                    No votes yet – who will take the lead, bride’s side or groom’s side?
+                                </div>
+                                <div class="poll-totals" id="totalVotesText" style="margin-top:2px;font-size:11px;opacity:0.8;">
+                                    Total votes: 0
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer-note">
+                            Made with love for Shubham &amp; Bhawna’s wedding – may this countdown be as fun as the
+                            celebrations. 💫
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Welcome / Excitement Popup -->
+    <div class="modal-backdrop show" id="welcomeBackdrop">
+        <div class="modal">
+            <div class="modal-title">Are you excited?</div>
+            <div class="modal-subtitle">
+                Do you want to join this exciting journey and celebrate Shubham &amp; Bhawna’s big day with the family?
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn cancel" id="welcomeSkipBtn">Just looking around 😊</button>
+                <button class="modal-btn submit" id="welcomeYesBtn">Yes, I’m so excited! 🎉</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blessing Modal -->
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div class="modal">
+            <div class="modal-title">Send a Blessing</div>
+            <div class="modal-subtitle">
+                Write a short message for Shubham &amp; Bhawna – it will appear on the blessings wall.
+            </div>
+
+            <label for="nameInput">Your name (optional)</label>
+            <input id="nameInput" type="text" placeholder="e.g. Didi, Mama, Cousin, Arpit…" />
+
+            <label for="messageInput">Your message</label>
+            <textarea id="messageInput" placeholder="Type your blessing here…"></textarea>
+
+            <div class="modal-actions">
+                <button class="modal-btn cancel" id="cancelModalBtn">Cancel</button>
+                <button class="modal-btn submit" id="submitBlessingBtn">Add Blessing</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== COUNTDOWN SETUP =====
+        const weddingDate = new Date("2026-03-11T00:00:00");
+
+        const daysEl = document.getElementById("days");
+        const hoursEl = document.getElementById("hours");
+        const minutesEl = document.getElementById("minutes");
+        const secondsEl = document.getElementById("seconds");
+        const statusEl = document.getElementById("statusMessage");
+
+        const daysLabelEl = document.getElementById("daysLabel");
+        const weeksLeftEl = document.getElementById("weeksLeft");
+        const hoursLeftEl = document.getElementById("hoursLeft");
+        const minutesLeftEl = document.getElementById("minutesLeft");
+        const secondsLeftTotalEl = document.getElementById("secondsLeftTotal");
+        const progressFillEl = document.getElementById("progressFill");
+        const funLineEl = document.getElementById("funLine");
+
+        const startWindow = new Date("2025-03-11T00:00:00").getTime();
+        const endWindow = weddingDate.getTime();
+
+        const funLines = [
+            "Who is more excited – the couple, or the family group chat? 🤭",
+            "Perfect time to plan dance performances and secret surprises!",
+            "Don’t forget to charge your phones… so many photos are coming. 📸",
+            "Somewhere, wedding outfits are being tried for the 100th time. 😉",
+            "Counting down the days until endless chai, laughter and rituals.",
+            "Someone is definitely rehearsing their speech in front of the mirror. 🎤",
+            "Soon there will be dhol, lights, and lots of happy chaos!",
+            "Make a wish for Shubham & Bhawna every time you check this page. ✨"
+        ];
+
+        const promptQuestions = [
+            "Who do you think will cry first at the wedding – the bride, the groom, or the parents?",
+            "Which side will cheer louder during the varmala ceremony?",
+            "Who will click the most selfies on the wedding day?",
+            "Who is the most excited about the food menu? Be honest. 😋",
+            "Who will start the dance floor and pull everyone in?",
+            "Which song should definitely play at the sangeet?",
+            "Who is going to be the official family photographer?",
+            "Who is most likely to forget where they kept their phone during the wedding?",
+            "Which childhood memory of Shubham or Bhawna will you definitely talk about?",
+            "Who will wake up earliest on the wedding day?",
+            "Who will dance the most non-stop at the sangeet – bride’s side or groom’s side?",
+            "Which side will shout the loudest during the baarat?",
+            "Who will spam the family WhatsApp group with maximum photos?",
+            "Who will eat the most dessert at the reception?",
+            "Which side is more likely to arrive late to any function (be honest 😜)?",
+            "Who will cry more during the vidaai – bride’s side or groom’s side?"
+        ];
+
+        const promptTextEl = document.getElementById("promptText");
+        const nextPromptBtn = document.getElementById("nextPromptBtn");
+
+        function getRandomItem(array, exclude) {
+            if (array.length === 0) return "";
+            const filtered = exclude ? array.filter(item => item !== exclude) : array;
+            if (filtered.length === 0) return exclude;
+            const idx = Math.floor(Math.random() * filtered.length);
+            return filtered[idx];
+        }
+
+        // ===== LOVE TAP (localStorage) =====
+        const loveBtn = document.getElementById("loveBtn");
+        const loveCountEl = document.getElementById("loveCount");
+        const LOVE_KEY = "shubhamBhawnaLoveTaps";
+
+        function loadLoveCount() {
+            const stored = localStorage.getItem(LOVE_KEY);
+            const count = stored ? parseInt(stored, 10) || 0 : 0;
+            loveCountEl.textContent = count;
+            return count;
+        }
+
+        function incrementLoveCount() {
+            const current = loadLoveCount();
+            const next = current + 1;
+            localStorage.setItem(LOVE_KEY, String(next));
+            loveCountEl.textContent = next;
+            loveBtn.style.transform = "scale(1.08)";
+            setTimeout(() => loveBtn.style.transform = "scale(1)", 140);
+        }
+
+        loveBtn.addEventListener("click", incrementLoveCount);
+
+        // ===== BLESSINGS MODAL =====
+        const blessingBtn = document.getElementById("blessingBtn");
+        const modalBackdrop = document.getElementById("modalBackdrop");
+        const cancelModalBtn = document.getElementById("cancelModalBtn");
+        const submitBlessingBtn = document.getElementById("submitBlessingBtn");
+        const blessingsListEl = document.getElementById("blessingsList");
+        const emptyNoteEl = document.getElementById("emptyNote");
+        const nameInput = document.getElementById("nameInput");
+        const messageInput = document.getElementById("messageInput");
+
+        function openModal() {
+            modalBackdrop.classList.add("show");
+            nameInput.value = "";
+            messageInput.value = "";
+            messageInput.focus();
+        }
+
+        function closeModal() {
+            modalBackdrop.classList.remove("show");
+        }
+
+        function addBlessing(name, message) {
+            const trimmedMessage = message.trim();
+            if (!trimmedMessage) return;
+
+            const blessingDiv = document.createElement("div");
+            blessingDiv.className = "blessing";
+            blessingDiv.innerHTML = `
+        ${trimmedMessage}
+        <small>– ${name ? name.trim() : "With love from the family"}</small>
+      `;
+            blessingsListEl.insertBefore(blessingDiv, blessingsListEl.firstChild);
+            emptyNoteEl.style.display = "none";
+        }
+
+        blessingBtn.addEventListener("click", openModal);
+        cancelModalBtn.addEventListener("click", closeModal);
+        modalBackdrop.addEventListener("click", (e) => {
+            if (e.target === modalBackdrop) closeModal();
+        });
+
+        submitBlessingBtn.addEventListener("click", () => {
+            const name = nameInput.value;
+            const msg = messageInput.value;
+            if (!msg.trim()) {
+                alert("Please write a short message first.");
+                return;
+            }
+            addBlessing(name, msg);
+            closeModal();
+        });
+
+        // ===== MUSIC TOGGLE =====
+        const musicToggleBtn = document.getElementById("musicToggle");
+        const weddingSong = document.getElementById("weddingSong");
+        let musicOn = false;
+
+        musicToggleBtn.addEventListener("click", async () => {
+            if (!musicOn) {
+                try {
+                    await weddingSong.play();
+                    musicOn = true;
+                    musicToggleBtn.classList.add("on");
+                    musicToggleBtn.innerHTML = '<span class="icon">⏸️</span> Pause Song';
+                } catch (err) {
+                    alert("Please add an audio file named \'wedding-song.mp3\' next to this file or check your browser\'s autoplay settings.");
+                }
+            } else {
+                weddingSong.pause();
+                musicOn = false;
+                musicToggleBtn.classList.remove("on");
+                musicToggleBtn.innerHTML = '<span class="icon">🎶</span> Wedding Song';
+            }
+        });
+
+        // ===== CONFETTI =====
+        const confettiBtn = document.getElementById("confettiBtn");
+        const confettiColors = ["#ec4899", "#f97316", "#facc15", "#22c55e", "#3b82f6"];
+
+        function launchConfetti() {
+            const count = 140;
+            for (let i = 0; i < count; i++) {
+                const piece = document.createElement("div");
+                piece.className = "confetti-piece";
+                const left = Math.random() * 100;
+                const delay = Math.random() * 0.9;
+                const duration = 2 + Math.random() * 1.2;
+                const color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                piece.style.left = left + "vw";
+                piece.style.backgroundColor = color;
+                piece.style.animationDuration = duration + "s";
+                piece.style.animationDelay = delay + "s";
+                piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+                document.body.appendChild(piece);
+                piece.addEventListener("animationend", () => {
+                    piece.remove();
+                });
+            }
+        }
+
+        confettiBtn.addEventListener("click", launchConfetti);
+
+        // ===== FAMILY PROMPTS =====
+        let currentPrompt = promptTextEl.textContent;
+
+        nextPromptBtn.addEventListener("click", () => {
+            const next = getRandomItem(promptQuestions, currentPrompt);
+            currentPrompt = next;
+            promptTextEl.textContent = next;
+        });
+
+        // ===== WELCOME / EXCITEMENT POPUP =====
+        const welcomeBackdrop = document.getElementById("welcomeBackdrop");
+        const welcomeYesBtn = document.getElementById("welcomeYesBtn");
+        const welcomeSkipBtn = document.getElementById("welcomeSkipBtn");
+
+        function closeWelcome() {
+            welcomeBackdrop.classList.remove("show");
+        }
+
+        welcomeYesBtn.addEventListener("click", async () => {
+            closeWelcome();
+            launchConfetti();
+            try {
+                await weddingSong.play();
+                musicOn = true;
+                musicToggleBtn.classList.add("on");
+                musicToggleBtn.innerHTML = '<span class="icon">⏸️</span> Pause Song';
+            } catch (e) {
+                // ignore autoplay block
+            }
+        });
+
+        welcomeSkipBtn.addEventListener("click", closeWelcome);
+
+        welcomeBackdrop.addEventListener("click", (e) => {
+            if (e.target === welcomeBackdrop) {
+                closeWelcome();
+            }
+        });
+
+        // ===== BRIDE VS GROOM POLL (localStorage, 1 vote per device) =====
+        const pollBrideBtn = document.getElementById("pollBrideBtn");
+        const pollGroomBtn = document.getElementById("pollGroomBtn");
+        const brideBarEl = document.getElementById("brideBar");
+        const groomBarEl = document.getElementById("groomBar");
+        const brideCountTextEl = document.getElementById("brideCountText");
+        const groomCountTextEl = document.getElementById("groomCountText");
+        const pollMessageEl = document.getElementById("pollMessage");
+        const totalVotesTextEl = document.getElementById("totalVotesText");
+
+        const POLL_KEY = "shubhamBhawnaBrideGroomPoll";
+        const POLL_DEVICE_KEY = "shubhamBhawnaBrideGroomPollVoted"; // 1 vote per device
+
+        function loadPollData() {
+            const stored = localStorage.getItem(POLL_KEY);
+            if (!stored) {
+                return {
+                    bride: 0,
+                    groom: 0
+                };
+            }
+            try {
+                const parsed = JSON.parse(stored);
+                return {
+                    bride: typeof parsed.bride === "number" ? parsed.bride : 0,
+                    groom: typeof parsed.groom === "number" ? parsed.groom : 0
+                };
+            } catch {
+                return {
+                    bride: 0,
+                    groom: 0
+                };
+            }
+        }
+
+        function savePollData(data) {
+            localStorage.setItem(POLL_KEY, JSON.stringify(data));
+        }
+
+        function updatePollUI() {
+            const data = loadPollData();
+            const total = data.bride + data.groom;
+            const bridePercent = total === 0 ? 0 : (data.bride / total) * 100;
+            const groomPercent = total === 0 ? 0 : (data.groom / total) * 100;
+
+            brideBarEl.style.width = bridePercent + "%";
+            groomBarEl.style.width = groomPercent + "%";
+
+            brideCountTextEl.textContent = `${data.bride} vote${data.bride === 1 ? "" : "s"}`;
+            groomCountTextEl.textContent = `${data.groom} vote${data.groom === 1 ? "" : "s"}`;
+            totalVotesTextEl.textContent = `Total votes: ${total}`;
+
+            if (total === 0) {
+                pollMessageEl.textContent = "No votes yet – who will take the lead, bride’s side or groom’s side?";
+            } else if (data.bride > data.groom) {
+                const diff = data.bride - data.groom;
+                pollMessageEl.textContent = `Right now, bride’s side is winning by ${diff} vote${diff === 1 ? "" : "s"}! 👰✨`;
+            } else if (data.groom > data.bride) {
+                const diff = data.groom - data.bride;
+                pollMessageEl.textContent = `Right now, groom’s side is winning by ${diff} vote${diff === 1 ? "" : "s"}! 🤵🔥`;
+            } else {
+                pollMessageEl.textContent = "It’s a perfect tie! Both sides are equally excited. 💖";
+            }
+        }
+
+        function registerVote(side) {
+            const alreadyVoted = localStorage.getItem(POLL_DEVICE_KEY);
+            if (alreadyVoted === "yes") {
+                alert("You have already voted from this device! Let someone else from your side vote now 😄");
+                return;
+            }
+
+            const data = loadPollData();
+            if (side === "bride") {
+                data.bride += 1;
+            } else if (side === "groom") {
+                data.groom += 1;
+            }
+            savePollData(data);
+            localStorage.setItem(POLL_DEVICE_KEY, "yes");
+            updatePollUI();
+        }
+
+        pollBrideBtn.addEventListener("click", () => registerVote("bride"));
+        pollGroomBtn.addEventListener("click", () => registerVote("groom"));
+
+        // ===== COUNTDOWN FUNCTION =====
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate.getTime() - now;
+
+            if (distance <= 0) {
+                daysEl.textContent = "0";
+                hoursEl.textContent = "00";
+                minutesEl.textContent = "00";
+                secondsEl.textContent = "00";
+                statusEl.textContent = "Today, Shubham & Bhawna begin their happily ever after. 💫";
+                daysLabelEl.textContent = "It’s wedding day! 🎊";
+                weeksLeftEl.textContent = "0";
+                hoursLeftEl.textContent = "0";
+                minutesLeftEl.textContent = "0";
+                secondsLeftTotalEl.textContent = "0";
+                progressFillEl.style.width = "100%";
+                funLineEl.textContent = "Smile for the cameras, and enjoy every second of today!";
+                return;
+            }
+
+            const totalSeconds = Math.floor(distance / 1000);
+            const days = Math.floor(totalSeconds / (60 * 60 * 24));
+            const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+            const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+            const seconds = totalSeconds % 60;
+
+            daysEl.textContent = String(days);
+            hoursEl.textContent = String(hours).padStart(2, "0");
+            minutesEl.textContent = String(minutes).padStart(2, "0");
+            secondsEl.textContent = String(seconds).padStart(2, "0");
+
+            const weeks = (days / 7).toFixed(1);
+            weeksLeftEl.textContent = weeks;
+            hoursLeftEl.textContent = (totalSeconds / 3600).toFixed(0);
+            minutesLeftEl.textContent = (totalSeconds / 60).toFixed(0);
+            secondsLeftTotalEl.textContent = totalSeconds.toLocaleString();
+
+            daysLabelEl.textContent = days === 1 ? "1 day to go 💖" : `${days} days to go 💖`;
+
+            let progress = 0;
+            if (now <= startWindow) {
+                progress = 0;
+            } else if (now >= endWindow) {
+                progress = 100;
+            } else {
+                const passed = now - startWindow;
+                const total = endWindow - startWindow;
+                progress = (passed / total) * 100;
+            }
+            progressFillEl.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+
+            let funHint;
+            if (days > 180) {
+                funHint = "Lots of time to plan… and to change the plan 10 times. 😄";
+            } else if (days > 90) {
+                funHint = "Perfect time to shortlist songs and outfits for the big week!";
+            } else if (days > 30) {
+                funHint = "Wedding shopping mood: ON. Someone, please hide the credit cards. 😉";
+            } else if (days > 7) {
+                funHint = "Single-digit weeks left – the excitement is officially real!";
+            } else {
+                funHint = "It’s almost here – charge the cameras and get your dance steps ready!";
+            }
+            if (Math.random() < 0.25) {
+                funHint = getRandomItem(funLines, funLineEl.textContent);
+            }
+            funLineEl.textContent = funHint;
+        }
+
+        // Initialisation
+        loadLoveCount();
+        updatePollUI();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+
+</html>
